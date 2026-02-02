@@ -17,6 +17,7 @@ typedef enum
 typedef enum
 {
     ERROR_GAME_START_INVALID_STATE = 1,
+    ERROR_GAME_UPDATE_INVALID_STATE = 2
     //expand in future
 } error_t;
 
