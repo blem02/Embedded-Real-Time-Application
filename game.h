@@ -14,6 +14,14 @@ typedef enum
     GAME_STATE_FINISHED
 } game_state_t;
 
+typedef enum
+{
+    ERROR_GAME_START_INVALID_STATE = 1,
+    //expand in future
+} error_t;
+
+void report_error(error_t code);
+
 // Interface
 void game_init(void);
 void game_start(void);
