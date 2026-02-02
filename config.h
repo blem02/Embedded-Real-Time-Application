@@ -11,10 +11,10 @@
 
 #define GAME_LOWEST_SCORE (0U)
 
-#define PROB_LAMP_1 (0,7U)      //Prozent, dass x Lampen leuchten
-#define PROB_LAMP_2 (0,2U)
-#define PROB_LAMP_3 (0,07U)
-#define PROB_LAMP_4 (0,03U)
+#define PROB_LAMP_1 (0.7U)      //Prozent, dass x Lampen leuchten
+#define PROB_LAMP_2 (0.2U)
+#define PROB_LAMP_3 (0.07U)
+#define PROB_LAMP_4 (0.03U)
 
 
 #endif //CONFIG_H
