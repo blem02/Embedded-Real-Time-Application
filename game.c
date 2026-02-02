@@ -1,7 +1,8 @@
 //Noch zu erledigen
 //für timer: timer_start() und timer_expired
-//phase_complete(), phase_check_hit(button_id), phase_start()
+//phase_complete(), phase_check_hit(button_id), phase_start(), phase_any_pressed()
 //display_score(game_score);
+//
 
 #include "game.h"
 #include "config.h"
@@ -23,31 +24,42 @@ void game_init(void) {
     game_state = GAME_STATE_RUNNING;
 }
 
-void game_start(void) {
-    if (game_state == GAME_STATE_IDLE){
-        game_init();
-    }
-    else {
-        report_error(ERROR_GAME_START_INVALID_STATE);
-    }
-}
 
 void game_update(void) {
 
-    if (game_state == GAME_STATE_RUNNING) {
-        if (timer_expired()) {
-            game_state = GAME_STATE_FINISHED;
-        }
-        else if (phase_complete()){
-             phase_start();
-        }
-        else {
-                //Lasse phase zuende laufen, keine Aktion nötig
-        }
-    }
-    else {
-        report_error(ERROR_GAME_UPDATE_INVALID_STATE); 
+    switch(game_state) {
+        case GAME_STATE_IDLE:
+            if (phase_any_pressed()){
+                game_init();
+            }
+            else {
+                //keine aktion nötig
+            }
+            break;
 
+        case GAME_STATE_INIT:
+            //lass initialisieren, keine Aktion nötig
+            break;
+
+        case GAME_STATE_RUNNING:
+            if (timer_expired()) {
+                game_state = GAME_STATE_FINISHED;
+            }
+            else if (phase_complete()){
+                phase_start();
+            }
+            else {
+                    //Lasse phase zuende laufen, keine Aktion nötig
+            }
+            break;
+
+        case GAME_STATE_FINISHED:
+            game_finished();
+            break;
+        
+        default: 
+            report_error(ERROR_GAME_UPDATE_INVALID_STATE); 
+            break;
     }   
 }
 
