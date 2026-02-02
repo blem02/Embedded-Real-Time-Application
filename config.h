@@ -1,14 +1,20 @@
 // Requirements: REQ-GAME-TIME, REQ-GAME-HIT, REQ-GAME-MISS, REQ-PHASE-PROB
 // Diese Konfig bestimmt Konstanten zur Bestimmung der Spiellänge, des Score und der Wahrscheinlichkeiten von Lampenaufleuchten
 
+#ifndef CONFIG_H
+#define CONFIG_H
+
                                 // xU für unsigned integer, (x) zur Klarheit kompilerlogik
 #define GAME_TIME (30U)         //Sekunden Spielzeit
 
 #define GAME_HIT (1U)           //Punkt pro Hit
 
-#define_GAME_LOWEST_SCORE (0U)
+#define GAME_LOWEST_SCORE (0U)
 
 #define PROB_LAMP_1 (0,7U)      //Prozent, dass x Lampen leuchten
 #define PROB_LAMP_2 (0,2U)
 #define PROB_LAMP_3 (0,07U)
 #define PROB_LAMP_4 (0,03U)
+
+
+#endif //CONFIG_H
