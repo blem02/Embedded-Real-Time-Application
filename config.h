@@ -5,7 +5,8 @@
 #define CONFIG_H
 
                                 // xU für unsigned integer, (x) zur Klarheit kompilerlogik
-#define GAME_TIME (30U)         //Sekunden Spielzeit
+#define GAME_TIME (30000U)         //Millisekunden Spielzeit
+#define GAME_FINISHED_WAIT_MS 5000U
 
 #define GAME_HIT (1U)           //Punkt pro Hit
 
