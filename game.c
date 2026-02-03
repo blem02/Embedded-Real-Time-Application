@@ -113,6 +113,9 @@ void report_error(error_t code) {
         case ERROR_GAME_BUTTON_PRESSED_INVALID_STATE:
             Serial.println("ERROR: Game button pressed invalid state");
             break;
+        case ERROR_PHASE_DETERMINE_BUTTONS:
+            Serial.println("ERROR: Phase could not determine amount of buttons to light");
+            break;
         default: 
             Serial.println("UNKNOWN ERROR");
             break;
