@@ -17,11 +17,7 @@
 #define PROB_LAMP_3 (0.07U)
 #define PROB_LAMP_4 (0.03U)
 
-#define BUTTON_NONE         0U
-#define BUTTON_TOP_LEFT     1U
-#define BUTTON_TOP_RIGHT    2U
-#define BUTTON_BOTTOM_LEFT  3U
-#define BUTTON_BOTTOM_RIGHT 4U
+
 
 
 
