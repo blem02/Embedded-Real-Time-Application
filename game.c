@@ -13,7 +13,7 @@
 
 static game_state_t game_state = GAME_STATE_IDLE;
 static uint8_t game_score = GAME_LOWEST_SCORE;
-
+static button_id_t update_button = BUTTON_NONE;
 
 void game_init(void) {
     game_state = GAME_STATE_INIT;
@@ -48,8 +48,14 @@ void game_update(void) {
             else if (phase_complete()){
                 phase_start();
             }
-            else {
-                    //Lasse phase zuende laufen, keine Aktion nötig
+            else {  //prüfe ob button gedrückt wurde
+                update_button = phase_any_pressed(); //liefert genauen button
+                if (update button != BUTTON_NONE){
+                    game_button_pressed(uint8_t update_button);
+                }
+                else{
+                    //keine aktion nötig, kein button gedrückt
+                }
             }
             break;
 
