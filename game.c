@@ -29,7 +29,7 @@ void game_update(void) {
 
     switch(game_state) {
         case GAME_STATE_IDLE:
-            if (phase_any_pressed()){
+            if (phase_any_pressed() != BUTTON_NONE){
                 game_init();
             }
             else {
