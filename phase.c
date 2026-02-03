@@ -1,6 +1,18 @@
 //  TODO     light_top_left(); light_top_right(); light_bottom_left(); light_bottom_right();
 //           light_off_...
-//here phase_complete(), phase_check_hit(button_id), phase_start(), phase_any_pressed()
+//TODO boolean button_pressed(button_id_t button_id);
+
+/* TODO
+zu phase.h
+typedef enum
+{
+    BUTTON_NONE = 0,
+    BUTTON_TOP_LEFT,
+    BUTTON_TOP_RIGHT,
+    BUTTON_BOTTOM_LEFT,
+    BUTTON_BOTTOM_RIGHT
+} button_id_t;
+*/
 
 #include "phase.h"
 #include <Arduino.h>   // nur für millis() / random(), kann später HAL sein
@@ -12,8 +24,10 @@ static bool light_top_right_on = false;
 static bool light_bottom_left_on = false;
 static bool light_bottom_right_on = false;
 
+static bool any_button_pressed = false;
 
 void phase_start(void) {
+    phase_reset();
     uint8_t num_buttons_to_light = phase_draw_buttons_to_light();
     phase_determine_buttons(num_buttons_to_light);
 }
@@ -144,18 +158,20 @@ void phase_reset(void) {
     light_off_top_right();
     light_off_bottom_left();
     light_off_bottom_right();
+
+    light_top_left_on = false;
+    light_top_right_on = false;
+    light_bottom_left_on = false;
+    light_bottom_right_on = false;
 }
 
-
-bool phase_check_hit(uint8_t button_id)
-{
+//wird von game_button_pressed aufgerufen, um zu prüfen ob hit war
+bool phase_check_hit(uint8_t button_id) {
     bool hit = false;
 
-    switch (button_id)
-    {
+    switch (button_id) {
         case BUTTON_TOP_LEFT:
-            if (light_top_left_on == true)
-            {
+            if (light_top_left_on == true) {
                 light_top_left_on = false;
                 light_off_top_left();
                 hit = true;
@@ -163,8 +179,7 @@ bool phase_check_hit(uint8_t button_id)
             break;
 
         case BUTTON_TOP_RIGHT:
-            if (light_top_right_on == true)
-            {
+            if (light_top_right_on == true) {
                 light_top_right_on = false;
                 light_off_top_right();
                 hit = true;
@@ -172,8 +187,7 @@ bool phase_check_hit(uint8_t button_id)
             break;
 
         case BUTTON_BOTTOM_LEFT:
-            if (light_bottom_left_on == true)
-            {
+            if (light_bottom_left_on == true) {
                 light_bottom_left_on = false;
                 light_off_bottom_left();
                 hit = true;
@@ -181,8 +195,7 @@ bool phase_check_hit(uint8_t button_id)
             break;
 
         case BUTTON_BOTTOM_RIGHT:
-            if (light_bottom_right_on == true)
-            {
+            if (light_bottom_right_on == true) {
                 light_bottom_right_on = false;
                 light_off_bottom_right();
                 hit = true;
@@ -190,9 +203,46 @@ bool phase_check_hit(uint8_t button_id)
             break;
 
         default:
-            report_error(ERROR_PHASE_INVALID_BUTTON); //das muss noch in die konfig
+            report_error(ERROR_PHASE_INVALID_BUTTON); 
             break;
     }
 
     return hit;
+}
+
+
+bool phase_complete(void) {
+    if ((light_top_left_on == true) ||
+        (light_top_right_on == true) ||
+        (light_bottom_left_on == true) ||
+        (light_bottom_right_on == true))
+    {
+        return false;   /* Mindestens eine Lampe ist noch an */
+    }
+    else
+    {
+        return true;    /* Alle Lampen sind aus → Phase beendet */
+    }
+}
+
+button_id_t phase_any_pressed(void)
+{
+    if (button_pressed(BUTTON_TOP_LEFT) == true)
+    {
+        return BUTTON_TOP_LEFT;
+    }
+    if (button_pressed(BUTTON_TOP_RIGHT) == true)
+    {
+        return BUTTON_TOP_RIGHT;
+    }
+    if (button_pressed(BUTTON_BOTTOM_LEFT) == true)
+    {
+        return BUTTON_BOTTOM_LEFT;
+    }
+    if (button_pressed(BUTTON_BOTTOM_RIGHT) == true)
+    {
+        return BUTTON_BOTTOM_RIGHT;
+    }
+
+    return BUTTON_NONE;
 }
