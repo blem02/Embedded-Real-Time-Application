@@ -116,6 +116,9 @@ void report_error(error_t code) {
         case ERROR_PHASE_DETERMINE_BUTTONS:
             Serial.println("ERROR: Phase could not determine amount of buttons to light");
             break;
+        case ERROR_PHASE_INVALID_BUTTON:
+            Serial.println("ERROR: wrong button ID in phase_check_hit");
+            break;
         default: 
             Serial.println("UNKNOWN ERROR");
             break;
