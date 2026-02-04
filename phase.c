@@ -37,18 +37,22 @@ void phase_determine_buttons(uint8_t num_buttons_to_light) {
     uint8_t r2 = random(0, 4);
     switch(num_buttons_to_light) {
         case 1:
-            if (r2 == 0)
+            if (r2 == 0) {
                 light_top_left();
                 light_top_left_on = true;
-            else if (r2 == 1)
+            }
+            else if (r2 == 1) {
                 light_top_right();
                 light_top_right_on = true;
-            else if (r2 == 2)
+            }
+            else if (r2 == 2) {
                 light_bottom_left();
                 light_bottom_left_on = true;
-            else if (r2 == 3)
+            }
+            else if (r2 == 3) {
                 light_bottom_right();
                 light_bottom_right_on = true;
+            }
             else {
                 report_error(ERROR_PHASE_DETERMINE_BUTTONS);
             }
