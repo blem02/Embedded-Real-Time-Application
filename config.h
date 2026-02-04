@@ -12,7 +12,10 @@
 
 #define GAME_LOWEST_SCORE (0U)
 
-
+#define LED_TOP_LEFT_PIN     2U
+#define LED_TOP_RIGHT_PIN    3U
+#define LED_BOTTOM_LEFT_PIN  4U
+#define LED_BOTTOM_RIGHT_PIN 5U
 
 
 
