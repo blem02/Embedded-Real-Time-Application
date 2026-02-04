@@ -28,7 +28,7 @@ void report_error(error_t code);
 void game_init(void);
 void game_update(void);
 void game_finished(void);
-void game_button_pressed(uint8_t button_id);
+void game_button_pressed(button_id_t button_id);
 
 game_state_t game_get_state(void);
 uint8_t game_get_score(void);
