@@ -15,6 +15,8 @@ void setup(void) {
     pinMode(BUTTON_TOP_RIGHT_PIN,    INPUT_PULLUP);
     pinMode(BUTTON_BOTTOM_LEFT_PIN,  INPUT_PULLUP);
     pinMode(BUTTON_BOTTOM_RIGHT_PIN, INPUT_PULLUP);
+
+    light_init(); // LEDs aus
 }
 
 void loop(void) {
