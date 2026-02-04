@@ -1,6 +1,3 @@
-//Noch zu erledigen
-//display_score(game_score);
-//
 
 #include "game.h"
 #include "config.h"
