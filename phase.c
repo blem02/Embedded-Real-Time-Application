@@ -16,7 +16,7 @@ static bool any_button_pressed = false;
 
 void phase_start(void) {
     phase_reset();
-    uint8_t num_buttons_to_light = phase_draw_buttons_to_light();
+    uint8_t num_buttons_to_light = phase_draw_num_buttons_to_light();
     phase_determine_buttons(num_buttons_to_light);
 }
 
