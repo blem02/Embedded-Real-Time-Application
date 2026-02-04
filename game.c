@@ -45,7 +45,7 @@ void game_update(void) {
             }
             else {  //prüfe ob button gedrückt wurde
                 update_button = phase_any_pressed(); //liefert genauen button
-                if (update button != BUTTON_NONE){
+                if (update_button != BUTTON_NONE){
                     game_button_pressed(uint8_t update_button);
                 }
                 else{
