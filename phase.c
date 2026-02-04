@@ -58,36 +58,40 @@ void phase_determine_buttons(uint8_t num_buttons_to_light) {
             }
             break;
         case 2:
-            if (r2 == 0)
+            if (r2 == 0) {
                 //light_two_left
                 light_top_left();
                 light_bottom_left();
                 light_top_left_on = true;
                 light_bottom_left_on = true;
-            else if (r2 == 1)
+            }
+            else if (r2 == 1) {
                 //light_two_right
                 light_top_right();
                 light_bottom_right();
                 light_top_right_on = true;
                 light_bottom_right_on = true;
-            else if (r2 == 2)
+            }
+            else if (r2 == 2) {
                 //light_two_top
                 light_top_left();
                 light_top_right();
                 light_top_left_on = true;
                 light_top_right_on = true;
-            else if (r2 == 3)
+            }
+            else if (r2 == 3) {
                 //light_two_bottom
                 light_bottom_left();
                 light_bottom_right();
                 light_bottom_left_on = true;
                 light_bottom_right_on = true;
+            }
             else {
                 report_error(ERROR_PHASE_DETERMINE_BUTTONS);
             }
             break;
         case 3:
-            if (r2 == 0)
+            if (r2 == 0) {
                 //light_all_except_top_left
                 light_top_right();
                 light_bottom_left();
@@ -96,7 +100,8 @@ void phase_determine_buttons(uint8_t num_buttons_to_light) {
                 light_top_right_on = true;
                 light_bottom_left_on = true;
                 light_bottom_right_on = true;
-            else if (r2 == 1)
+            }
+            else if (r2 == 1) {
                 //light_all_except_top_right
                 light_top_left();
                 light_bottom_left();
@@ -105,7 +110,8 @@ void phase_determine_buttons(uint8_t num_buttons_to_light) {
                 light_top_left_on = true;
                 light_bottom_left_on = true;
                 light_bottom_right_on = true;
-            else if (r2 == 2)
+            }
+            else if (r2 == 2) {
                 //light_all_except_bottom_left
                 light_top_left();
                 light_top_right();
@@ -114,7 +120,8 @@ void phase_determine_buttons(uint8_t num_buttons_to_light) {
                 light_top_left_on = true;
                 light_top_right_on = true;
                 light_bottom_right_on = true;
-            else if (r2 == 3)
+            }
+            else if (r2 == 3) {
                 //light_all_except_bottom_right
                 light_top_left();
                 light_top_right();
@@ -123,6 +130,7 @@ void phase_determine_buttons(uint8_t num_buttons_to_light) {
                 light_top_left_on = true;
                 light_top_right_on = true;
                 light_bottom_left_on = true;
+            }
             else {
                 report_error(ERROR_PHASE_DETERMINE_BUTTONS);
             }
