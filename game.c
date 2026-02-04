@@ -1,6 +1,4 @@
 //Noch zu erledigen
-//für timer: timer_start() und timer_expired
-//phase_complete(), phase_check_hit(button_id), phase_start(), phase_any_pressed()
 //display_score(game_score);
 //
 
