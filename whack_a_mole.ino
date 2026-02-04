@@ -6,7 +6,7 @@
 #include "game.h"
 #include "light.h"
 #include "phase.h"
-#include "timer.h
+#include "timer.h"
 
 void setup(void) {
     Serial.begin(9600);
