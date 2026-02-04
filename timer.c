@@ -12,7 +12,7 @@ void timer_start(void)
 bool timer_expired(void)
 {
     /* millis() ist uint32_t, Subtraktion funktioniert auch bei Overflow */
-    if ((millis() - star_time) >= GAME_TIME_MS)
+    if ((millis() - start_time) >= GAME_TIME_MS)
     {
         return true;
     }
