@@ -5,6 +5,7 @@
 #include <Arduino.h>   // nur für millis() / random(), kann später HAL sein
 #include "config.h"
 #include "light.h"
+#include "game.h"
 
 static bool light_top_left_on = false;
 static bool light_top_right_on = false;
@@ -153,7 +154,7 @@ void phase_reset(void) {
 }
 
 //wird von game_button_pressed aufgerufen, um zu prüfen ob hit war
-bool phase_check_hit(uint8_t button_id) {
+bool phase_check_hit(button_id_t button_id) {
     bool hit = false;
 
     switch (button_id) {
