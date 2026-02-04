@@ -46,7 +46,7 @@ void game_update(void) {
             else {  //prüfe ob button gedrückt wurde
                 update_button = phase_any_pressed(); //liefert genauen button
                 if (update_button != BUTTON_NONE){
-                    game_button_pressed(uint8_t update_button);
+                    game_button_pressed(update_button);
                 }
                 else{
                     //keine aktion nötig, kein button gedrückt
@@ -84,7 +84,7 @@ void game_finished(void) {
 
 }
 
-void game_button_pressed(uint8_t button_id) {
+void game_button_pressed(button_id_t button_id) {
     if (game_state != GAME_STATE_RUNNING) {
         report_error(ERROR_GAME_BUTTON_PRESSED_INVALID_STATE);
         return;
