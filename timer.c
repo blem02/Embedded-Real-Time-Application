@@ -6,7 +6,7 @@ static uint32_t start_time = 0U;
 
 void timer_start(void)
 {
-    star_time = millis();
+    start_time = millis();
 }
 
 bool timer_expired(void)
