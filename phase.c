@@ -26,7 +26,7 @@ static bool light_bottom_right_on = false;
 
 static bool any_button_pressed = false;
 
-void phase_start(void) {
+void phase_start() {
     phase_reset();
     uint8_t num_buttons_to_light = phase_draw_buttons_to_light();
     phase_determine_buttons(num_buttons_to_light);
