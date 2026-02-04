@@ -1,18 +1,5 @@
-//  TODO     light_top_left(); light_top_right(); light_bottom_left(); light_bottom_right();
-//           light_off_...
 //TODO boolean button_pressed(button_id_t button_id);
 
-/* TODO
-zu phase.h
-typedef enum
-{
-    BUTTON_NONE = 0,
-    BUTTON_TOP_LEFT,
-    BUTTON_TOP_RIGHT,
-    BUTTON_BOTTOM_LEFT,
-    BUTTON_BOTTOM_RIGHT
-} button_id_t;
-*/
 
 #include "phase.h"
 #include <Arduino.h>   // nur für millis() / random(), kann später HAL sein
