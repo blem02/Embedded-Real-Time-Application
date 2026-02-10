@@ -18,3 +18,13 @@
 #define BUTTON_TOP_RIGHT_PIN    A2
 #define BUTTON_BOTTOM_LEFT_PIN  A3
 #define BUTTON_BOTTOM_RIGHT_PIN A4
+
+// für Buttons, Game, Phase
+typedef enum {
+    BUTTON_NONE = 0,
+    BUTTON_TOP_LEFT,
+    BUTTON_TOP_RIGHT,
+    BUTTON_BOTTOM_LEFT,
+    BUTTON_BOTTOM_RIGHT
+} button_id_t;
+
